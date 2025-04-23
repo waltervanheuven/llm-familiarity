@@ -1,4 +1,4 @@
-# LLM familiarity estimates
+# Word familiarity ratings from LLM
 
 Use LLM to obtain word familiarity ratings. Script is based on method described in Brysbaert et al. (2025).
 
