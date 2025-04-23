@@ -65,4 +65,4 @@ uv run llm_familiarity.py -h
 
 ## References
 
-Brysbaert, M., Martínez, G., & Reviriego, P. (2025). Moving beyond word frequency based on tally counting: AI-generated familiarity estimates of words and phrases are a better index of language knowledge. *Behavior Research Methods*. [https://doi.org/10.31234/osf.io/kgevy](https://doi.org/10.31234/osf.io/kgevy)
+Brysbaert, M., Martínez, G., & Reviriego, P. (2025). Moving beyond word frequency based on tally counting: AI-generated familiarity estimates of words and phrases are a better index of language knowledge. *Behavior Research Methods*. [https://doi.org/https://doi.org/10.3758/s13428-024-02561-7](https://doi.org/https://doi.org/10.3758/s13428-024-02561-7)
