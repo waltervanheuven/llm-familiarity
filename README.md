@@ -23,9 +23,9 @@ brew install uv
 
 Install [scoop](https://scoop.sh).
 
-Next install `Python` and `uv` using the [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.5).
+Next install `Python` and `uv` using the [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/).
 
-```powershell
+```cmd
 scoop bucket add versions
 scoop install versions/python312
 scoop bucket add main
