@@ -36,6 +36,7 @@ scoop install main/uv
 
 ```sh
 git clone https://github.com/waltervanheuven/llm-familiarity.git
+cd llm-familiarity
 ```
 
 </details>
