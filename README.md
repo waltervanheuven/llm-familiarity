@@ -12,7 +12,7 @@ Use LLM to obtain word familiarity ratings. Script is based on method described 
 
 Install [brew](https://brew.sh).
 
-Next install `Python` and `uv` using the [Terminal](https://support.apple.com/en-gb/guide/terminal/welcome/mac)
+Next, install `Python` and `uv` using the [Terminal](https://support.apple.com/en-gb/guide/terminal/welcome/mac).
 
 ```sh
 brew install python@3.12
@@ -23,7 +23,7 @@ brew install uv
 
 Install [scoop](https://scoop.sh).
 
-Next install `Python` and `uv` using the [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/).
+Next, install `Python` and `uv` using the [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/).
 
 ```cmd
 scoop bucket add versions
@@ -40,8 +40,7 @@ git clone https://github.com/waltervanheuven/llm-familiarity.git
 
 </details>
 
-To use OpenAI API KEY you can set the `OPENAI_API_KEY` environment variable.
-[How to set API KEY](https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety). Alternatively, you can set it using `--api_key`.
+To use an OpenAI API KEY, you can set the `OPENAI_API_KEY` environment variable. [How to set API KEY](https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety). Alternatively, you can set it using `--api_key`.
 
 ## Examples
 
