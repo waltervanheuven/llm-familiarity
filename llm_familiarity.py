@@ -15,10 +15,8 @@ import os
 import sys
 import math
 import torch
-import re
-from pathlib import Path
 from openai import OpenAI
-from typing import Dict, Any, Optional, List, Union, Tuple
+
 
 DEBUG = False
 
@@ -44,7 +42,7 @@ def process_word_openai(
         model: str,
         max_tokens: int,
         temperature: float
-    ) -> Tuple[str, Dict[str, float]]:
+    ) -> tuple[str, dict[str, float]]:
     """Process a word using OpenAI API and return results."""
     response = client.chat.completions.create(
         model=model,
@@ -83,7 +81,7 @@ def calculate_transformer_logprobs(
         model,
         tokenizer,
         prompt: str
-    ) -> Tuple[str, Dict[str, float]]:
+    ) -> tuple[str, dict[str, float]]:
 
     # Tokenize the prompt
     inputs = tokenizer(prompt, return_tensors="pt", padding=True, truncation=True)
@@ -106,9 +104,10 @@ def calculate_transformer_logprobs(
     if DEBUG:
         print(f"Top predicted next token ID: {next_token_id}, Decoded: '{result_token_text}', Stripped Result: '{result}'")
         # Optional: Print top few tokens for context
-        top_k_logits, top_k_indices = torch.topk(last_token_logits, 5)
+        topn = 5
+        top_k_logits, top_k_indices = torch.topk(last_token_logits, topn)
         print("Top 5 predicted next tokens:")
-        for i in range(5):
+        for i in range(topn):
             token_id = top_k_indices[i].item()
             token_text = tokenizer.decode([token_id], skip_special_tokens=True, clean_up_tokenization_spaces=True).strip()
             log_prob = torch.log_softmax(last_token_logits, dim=-1)[token_id].item()
@@ -180,7 +179,7 @@ def process_word_transformers(
         model,
         tokenizer,
         word: str
-    ) -> Tuple[str, Dict[str, float]]:
+    ) -> tuple[str, dict[str, float]]:
     """Process a word using transformers model and return results."""
     prompt = WORD_FAMILIARITY.format(word=word)
 
@@ -239,11 +238,11 @@ def setup_transformers_model(
 
 def process_file(
         file_path: str,
-        api_key: Optional[str] = None,
+        api_key: str | None = None,
         model: str = "gpt-4o-2024-08-06",
         max_tokens: int = 100,
         temperature: float = 0.0,
-        hf_model_name: Optional[str] = None
+        hf_model_name: str | None = None
     ) -> None:
     """Process a file line by line using either OpenAI's API or Transformers."""
 
@@ -329,7 +328,7 @@ def process_file(
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Process a file line by line using OpenAI's GPT-4 or Hugging Face Transformers"
+        description="Obtain word familiarity rating from LLMs (OpenAI or Hugging Face Transformers)."
     )
     parser.add_argument("file_path", help="Path to the input file")
     parser.add_argument("--api_key", help="OpenAI API key (not needed for transformers)")
